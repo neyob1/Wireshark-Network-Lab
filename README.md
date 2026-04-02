@@ -61,15 +61,61 @@ Here I filtered anything to and from a specific address using ip.addr == address
 
 <img width="600" height="500" alt="Screenshot 2026-03-30 114909" src="https://github.com/user-attachments/assets/6663ed92-794d-4188-827d-d0f2fa838d37" />
 
+Used right click conversation filtering to see IPv4 conversation between two endpoints. Right click filtering is faster and puts you at less risk of making a mistake as opposed to typing out the script in the filter line.
+
+<img width="500" height="400" alt="Screenshot 2026-03-30 115608" src="https://github.com/user-attachments/assets/daf37cbb-851e-40e3-8d35-7bd85a9540eb" />
+
+Select a packet > UDP protocol > Right click > Prepare as filter > ...and selected allows us to preview all UDP packets from that conversation.
+
+<img width="500" height="400" alt="Screenshot 2026-03-30 220448" src="https://github.com/user-attachments/assets/419dbf05-efed-4b81-8d03-f0c48d74943e" />
+
+**Filtering by Text**: Searches for keywords inside packets containing certain words useful for enabling identification of HTTP requests, credentials, and detecting unusual traffic.
+
+Display filter which showed all packets that contained the word “google” using the script frame matches “google”. 
+
+<img width="600" height="500" alt="Screenshot 2026-03-30 221640" src="https://github.com/user-attachments/assets/385ffa23-2403-4454-8c6b-86a927d8a957" />
 
 
-### 2. Attaching Windows 11 Client to Domain
+### 2. Capturing Packets with Dumpcap
 
-#### Configuring Network
+Dumpcap is a command-line tool that captures packets more effeciently than the Wireshark GUI.
 
-- Within VB manager I went to Tools/Network/NAT Network and created a network named ADNetwork, the domain will run on this network.
+Script which shows interfaces on my system including the index number of the interfaces which we often need to call on.
 
-<img width="500" height="400" alt="image" src="https://github.com/user-attachments/assets/f9ff176d-83cd-4cc7-876c-2e30c7861d0c" />
+<img width="500" height="400" alt="Screenshot 2026-03-29 214529" src="https://github.com/user-attachments/assets/f40fb9dc-9828-456e-b418-b06cb252706b" />
+
+Used this script which includes the index number to view details of specific interface. Dumpcap provides the name of the interface, the location of temp folder and packets captured.
+
+<img width="400" height="250" alt="Screenshot 2026-03-29 214901" src="https://github.com/user-attachments/assets/7acb389b-5e1f-4d2e-893e-3e7c4b6505eb" />
+
+Script to save the interface and then write traffic to a ring buffer with a file size of 500000 megabytes and maximum number of 10 files.
+
+<img width="400" height="200" alt="Screenshot 2026-03-29 220024" src="https://github.com/user-attachments/assets/9ef6b846-0bfb-444f-999e-00d9e7b21b80" />
+
+
+### 3. Name Resolution
+
+**Purpose**: Name resolution resolves numerical network numbers (IP addresses, MAC addresses, and port numbers) to human readable names.
+
+**Configuration**
+Enabled in preferences:
+- Resolve transport names
+- Resolve network (IP) addresses
+
+Domains appear instead of raw IPs and services appear instead of port numbers.
+
+<img width="600" height="520" alt="Screenshot 2026-03-30 230647" src="https://github.com/user-attachments/assets/4b7b8e0d-b585-4a42-9b7e-1c3a62e45726" />
+
+Resolved domains can be viewed through Statistics > Resolved adresses
+
+<img width="500" height="400" alt="Screenshot 2026-03-30 231314" src="https://github.com/user-attachments/assets/1d8d8a7c-b02a-4ec7-86ea-98722295ec15" />
+
+Manually configured my host to have the name “Client” and one destination to be “Gateway” using right click > Edit the Resolved Name
+
+<img width="443" height="302" alt="Screenshot 2026-03-30 231957" src="https://github.com/user-attachments/assets/779e78b7-ec8f-4d7f-acc7-8060242b58e1" />
+
+
+
 
 - Entered the settings for both the Windows 11 client and the server and assigned both to the ADNetwork
 
