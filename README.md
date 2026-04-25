@@ -141,7 +141,7 @@ Filtered for DNS packet using the script "dns"
 
 For the fake website the standard query tells us “No such name” meaning that the website does not exist.
 
-<img width="1000" height="800" alt="Screenshot 2026-04-01 145434" src="https://github.com/user-attachments/assets/892dc3a2-de9b-45c6-8a12-81027aaa78ff" />
+<img width="500" height="400" alt="Screenshot 2026-04-01 145434" src="https://github.com/user-attachments/assets/892dc3a2-de9b-45c6-8a12-81027aaa78ff" />
 
 **Real Domain Observations**
 
